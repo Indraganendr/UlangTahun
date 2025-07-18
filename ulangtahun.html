@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selamat Ulang Tahun, Sayang!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6e6, #fff5f5);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #d6336c;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .slideshow-container {
+      max-width: 400px;
+      margin: 20px auto;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(214, 51, 108, 0.5);
+    }
+    .slides {
+      display: none;
+      width: 100%;
+      border-radius: 15px;
+    }
+    .active-slide {
+      display: block;
+    }
+    button {
+      background-color: #d6336c;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+    .heart {
+      font-size: 2em;
+      animation: pulse 1s infinite;
+      margin-top: 20px;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    audio {
+      margin-top: 20px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Selamat Ulang Tahun, Cintaku! 🎂</h1>
+
+  <p>
+    Hari ini adalah hari yang sangat spesial karena orang yang paling aku sayang lahir di dunia ini.  
+    Terima kasih sudah hadir dalam hidupku, mencintaiku, dan selalu membuat hariku lebih indah.  
+    Semoga hari ulang tahunmu dipenuhi cinta, tawa, dan semua hal yang membuatmu bahagia 💖
+  </p>
+
+  <!-- Slideshow Foto -->
+<div class="slideshow-container">
+  <img class="slides active-slide" src="foto4.jpeg" alt="Foto 1" />
+</div>
+
+  <button onclick="showLove()">Klik untuk Pesan Spesial 💌</button>
+  <p class="heart" id="secretMessage" style="display: none;">Aku sayang kamu selamanya 💖</p>
+
+  <!-- Tombol untuk memulai lagu -->
+  <button onclick="playSong()">Mainkan Lagu Ulang Tahun 🎶</button>
+
+  <!-- Audio Lagu Selamat Ulang Tahun -->
+<audio id="birthdaySong" controls autoplay loop>
+  <source src="mabukcinta.mp3" type="audio/mpeg" />
+  Browser kamu tidak mendukung audio.
+</audio>
+
+  <script>
+    // Slideshow otomatis
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slides');
+
+    function showSlide() {
+      slides.forEach((slide) => {
+        slide.style.display = 'none';
+      });
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = 'block';
+      setTimeout(showSlide, 3000);
+    }
+    showSlide();
+
+    // Tampilkan pesan spesial
+    function showLove() {
+      document.getElementById('secretMessage').style.display = 'block';
+    }
+
+    // Fungsi untuk memainkan lagu
+    function playSong() {
+      const audio = document.getElementById('birthdaySong');
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
